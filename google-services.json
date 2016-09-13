@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1098785577551",
+    "firebase_url": "https://eonar-4cc7b.firebaseio.com",
+    "project_id": "eonar-4cc7b",
+    "storage_bucket": "eonar-4cc7b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1098785577551:android:9a450f9a8033257c",
+        "android_client_info": {
+          "package_name": "pe.scargglioni.eonar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1098785577551-sl3svs1tcet4krq8c598pm5l83j4qsuh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pe.scargglioni.eonar",
+            "certificate_hash": "7989E9F7DE84DDB70DA909FFC39804F05FC06A35"
+          }
+        },
+        {
+          "client_id": "1098785577551-1f2ra2hafclbrnch7s97b9usqhcb6kmv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4ElByWjuOOAlFaQ8JYzNNgyiF-hg7edA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1098785577551-1f2ra2hafclbrnch7s97b9usqhcb6kmv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
