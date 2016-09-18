@@ -68,10 +68,6 @@ import pe.scargglioni.eonar.util.ActivityUtils;
 
         }
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ambulanceReference = database.getReference("ambulances");
-        ambulanceReference.child(UUID.randomUUID().toString()).setValue(new Ambulance(UUID.randomUUID().toString(),UUID.randomUUID().toString()));
-
     }
 
         @Override

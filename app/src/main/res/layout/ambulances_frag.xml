@@ -23,10 +23,12 @@
         android:text="Hola Test"
         android:id="@+id/textView" />
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@{ambulances.getAmbulances()}"
-        android:id="@+id/textView2" />
+        android:text="@{ambulances.ambulances}"
+        android:id="@+id/textView2"
+        android:textColor="#F00"
+        android:background="#CCC" />
 </LinearLayout>
 </layout>

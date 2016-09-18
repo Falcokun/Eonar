@@ -63,7 +63,6 @@ public class AmbulancesActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-
                     default:
                         break;
                 }

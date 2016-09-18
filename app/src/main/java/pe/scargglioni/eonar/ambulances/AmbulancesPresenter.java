@@ -2,6 +2,7 @@ package pe.scargglioni.eonar.ambulances;
 
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class AmbulancesPresenter implements AmbulancesContract.Presenter {
 
             @Override
             public void onDataNotAvailable() {
-
+                Log.e("Mostando","No data");
             }
         });
 
