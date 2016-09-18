@@ -20,6 +20,12 @@ public class Ambulance {
         mId = UUID.randomUUID().toString();
     }
 
+    public Ambulance(String license, String owner) {
+        mId = UUID.randomUUID().toString();
+        this.license = license;
+        this.owner = owner;
+    }
+
     @Override
     public String toString() {
         return "Ambulance{" +

@@ -11,6 +11,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import pe.scargglioni.eonar.R;
+import pe.scargglioni.eonar.data.source.AmbulanceDataSource;
+import pe.scargglioni.eonar.data.source.remote.AmbulanceFirebaseDataSource;
 import pe.scargglioni.eonar.util.ActivityUtils;
 
 
@@ -44,7 +46,7 @@ public class AmbulancesActivity extends AppCompatActivity {
                     getSupportFragmentManager(), ambulancesFragment, R.id.contentFrame);
         }
 
-        mAmbulancePresenter = new AmbulancesPresenter(ambulancesFragment);
+        mAmbulancePresenter = new AmbulancesPresenter(AmbulanceFirebaseDataSource.getInstance(),ambulancesFragment);
 
         AmbulancesViewModel ambulancesViewModel = new AmbulancesViewModel(getApplicationContext(), mAmbulancePresenter);
 

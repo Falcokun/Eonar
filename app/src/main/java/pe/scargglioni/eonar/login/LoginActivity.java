@@ -12,7 +12,10 @@ import android.view.MenuItem;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.UUID;
+
 import pe.scargglioni.eonar.R;
+import pe.scargglioni.eonar.data.Ambulance;
 import pe.scargglioni.eonar.util.ActivityUtils;
 
     public class LoginActivity extends AppCompatActivity {
@@ -64,6 +67,10 @@ import pe.scargglioni.eonar.util.ActivityUtils;
         if (savedInstanceState != null) {
 
         }
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ambulanceReference = database.getReference("ambulances");
+        ambulanceReference.child(UUID.randomUUID().toString()).setValue(new Ambulance(UUID.randomUUID().toString(),UUID.randomUUID().toString()));
 
     }
 

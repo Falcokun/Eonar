@@ -19,7 +19,7 @@ public class AmbulanceFirebaseDataSource implements AmbulanceDataSource {
     private static AmbulanceFirebaseDataSource INSTANCE;
     DatabaseReference ambulanceReference;
 
-    public AmbulanceFirebaseDataSource getInstance() {
+    public static AmbulanceFirebaseDataSource getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new AmbulanceFirebaseDataSource();
         }

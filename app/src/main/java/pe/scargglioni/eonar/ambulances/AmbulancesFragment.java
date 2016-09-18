@@ -10,6 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.List;
+
+import pe.scargglioni.eonar.data.Ambulance;
 import pe.scargglioni.eonar.databinding.AmbulancesFragBinding;
 
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -58,5 +61,10 @@ public class AmbulancesFragment extends Fragment implements AmbulancesContract.V
 
     public void setViewModel(AmbulancesViewModel mAmbulancesViewModel) {
         this.mAmbulancesViewModel = mAmbulancesViewModel;
+    }
+
+    @Override
+    public void showAmbulances(List<Ambulance> ambulances) {
+        mAmbulancesViewModel.setAmbulances(ambulances);
     }
 }
