@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
-public class LoginPresenter  implements LoginContract.Presenter{
+public class LoginPresenter implements LoginContract.Presenter {
 
     private final LoginContract.View mLoginView;
 
@@ -19,6 +19,11 @@ public class LoginPresenter  implements LoginContract.Presenter{
 
     }
 
+
+    @Override
+    public void doLogin() {
+        mLoginView.openMainActivity();
+    }
 
     @Override
     public void result(int requestCode, int resultCode) {

@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import pe.scargglioni.eonar.ambulances.AmbulancesActivity;
+import pe.scargglioni.eonar.data.Ambulance;
 import pe.scargglioni.eonar.databinding.LoginFragBinding;
 
 public class LoginFragment extends Fragment implements LoginContract.View {
@@ -59,4 +61,9 @@ public class LoginFragment extends Fragment implements LoginContract.View {
         mloginViewModel = viewModel;
     }
 
+    @Override
+    public void openMainActivity() {
+        Intent i = new Intent(getContext(), AmbulancesActivity.class);
+        startActivity(i);
+    }
 }

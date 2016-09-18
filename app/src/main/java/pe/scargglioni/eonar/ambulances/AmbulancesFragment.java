@@ -10,35 +10,34 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import pe.scargglioni.eonar.data.Ambulance;
 import pe.scargglioni.eonar.databinding.AmbulancesFragBinding;
-import pe.scargglioni.eonar.login.LoginContract;
 
-public class AmbulanceFragment extends Fragment implements AmbulanceContract.View {
+import static com.google.common.base.Preconditions.checkNotNull;
 
-    private AmbulanceContract.Presenter mPresenter;
+public class AmbulancesFragment extends Fragment implements AmbulancesContract.View {
 
-    private AmbulanceViewModel mAmbulanceViewModel;
+    private AmbulancesContract.Presenter mPresenter;
+
+    private AmbulancesViewModel mAmbulancesViewModel;
 
 
-    public AmbulanceFragment() {
-
+    public AmbulancesFragment() {
+        //Constructor Vacio
     }
 
-    public static AmbulanceFragment newInstance() {
-        return new AmbulanceFragment();
+    public static AmbulancesFragment newInstance() {
+        return new AmbulancesFragment();
     }
 
+    @Override
+    public void setPresenter(@NonNull AmbulancesContract.Presenter presenter) {
+        mPresenter = checkNotNull(presenter);
+    }
 
     @Override
     public void onResume() {
         super.onResume();
         mPresenter.start();
-    }
-
-    @Override
-    public void setPresenter(@NonNull AmbulanceContract.Presenter presenter) {
-        mPresenter = presenter;
     }
 
     @Override
@@ -51,13 +50,13 @@ public class AmbulanceFragment extends Fragment implements AmbulanceContract.Vie
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         AmbulancesFragBinding ambulancesFragBinding = AmbulancesFragBinding.inflate(inflater, container, false);
         ambulancesFragBinding.setActionHandler(mPresenter);
+
         setHasOptionsMenu(true);
         View root = ambulancesFragBinding.getRoot();
         return root;
     }
 
-    public void setViewModel(AmbulanceViewModel mAmbulanceViewModel) {
-        this.mAmbulanceViewModel = mAmbulanceViewModel;
-
+    public void setViewModel(AmbulancesViewModel mAmbulancesViewModel) {
+        this.mAmbulancesViewModel = mAmbulancesViewModel;
     }
 }

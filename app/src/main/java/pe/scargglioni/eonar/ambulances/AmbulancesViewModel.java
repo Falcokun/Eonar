@@ -4,11 +4,11 @@ import android.content.Context;
 import android.databinding.BaseObservable;
 
 
-public class AmbulanceViewModel extends BaseObservable {
-    private final AmbulanceContract.Presenter mPresenter;
+public class AmbulancesViewModel extends BaseObservable {
+    private final AmbulancesContract.Presenter mPresenter;
     private Context mContext;
 
-    public AmbulanceViewModel(Context mContext, AmbulanceContract.Presenter mPresenter) {
+    public AmbulancesViewModel(Context mContext, AmbulancesContract.Presenter mPresenter) {
         this.mContext = mContext;
         this.mPresenter = mPresenter;
     }

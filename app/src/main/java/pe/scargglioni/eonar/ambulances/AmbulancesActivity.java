@@ -14,10 +14,10 @@ import pe.scargglioni.eonar.R;
 import pe.scargglioni.eonar.util.ActivityUtils;
 
 
-public class AmbulanceActivity extends AppCompatActivity {
+public class AmbulancesActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
 
-    private AmbulancePresenter mAmbulancePresenter;
+    private AmbulancesPresenter mAmbulancePresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,17 +37,22 @@ public class AmbulanceActivity extends AppCompatActivity {
             setupDrawerContent(navigationView);
         }
 
-        AmbulanceFragment ambulanceFragment = (AmbulanceFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
-        if (ambulanceFragment == null) {
-            ambulanceFragment = AmbulanceFragment.newInstance();
-            ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), ambulanceFragment, R.id.contentFrame);
+        AmbulancesFragment ambulancesFragment = (AmbulancesFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
+        if (ambulancesFragment == null) {
+            ambulancesFragment = AmbulancesFragment.newInstance();
+            ActivityUtils.addFragmentToActivity(
+                    getSupportFragmentManager(), ambulancesFragment, R.id.contentFrame);
         }
 
-        mAmbulancePresenter = new AmbulancePresenter(ambulanceFragment);
+        mAmbulancePresenter = new AmbulancesPresenter(ambulancesFragment);
 
-        AmbulanceViewModel ambulanceViewModel = new AmbulanceViewModel(getApplicationContext(), mAmbulancePresenter);
+        AmbulancesViewModel ambulancesViewModel = new AmbulancesViewModel(getApplicationContext(), mAmbulancePresenter);
 
-        ambulanceFragment.setViewModel(ambulanceViewModel);
+        ambulancesFragment.setViewModel(ambulancesViewModel);
+
+        if (savedInstanceState != null) {
+
+        }
     }
 
 

@@ -34,7 +34,6 @@ import pe.scargglioni.eonar.util.ActivityUtils;
         ab.setDisplayHomeAsUpEnabled(true);
 
         //DrawerLayout
-        // Set up the navigation drawer.
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerLayout.setStatusBarBackground(R.color.colorPrimaryDark);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);

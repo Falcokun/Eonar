@@ -4,7 +4,7 @@ package pe.scargglioni.eonar.ambulances;
 import pe.scargglioni.eonar.BasePresenter;
 import pe.scargglioni.eonar.BaseView;
 
-public interface AmbulanceContract {
+public interface AmbulancesContract {
 
     interface View extends BaseView<Presenter>{
 

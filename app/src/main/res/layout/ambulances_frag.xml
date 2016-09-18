@@ -5,7 +5,7 @@
         <import type="android.view.View" />
         <variable
             name="actionHandler"
-            type="pe.scargglioni.eonar.ambulances.AmbulanceContract.Presenter" />
+            type="pe.scargglioni.eonar.ambulances.AmbulancesContract.Presenter" />
     </data>
 
 <LinearLayout
