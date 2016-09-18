@@ -54,8 +54,7 @@ import pe.scargglioni.eonar.util.ActivityUtils;
 
         mLoginPresenter = new LoginPresenter(loginFragment);
 
-        LoginViewModel tasksViewModel =
-                new LoginViewModel(getApplicationContext(), mLoginPresenter);
+        LoginViewModel tasksViewModel = new LoginViewModel(getApplicationContext(), mLoginPresenter);
 
         loginFragment.setViewModel(tasksViewModel);
 
