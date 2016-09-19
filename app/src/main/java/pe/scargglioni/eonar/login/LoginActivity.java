@@ -68,12 +68,6 @@ import pe.scargglioni.eonar.util.ActivityUtils;
 
         }
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ambulanceReference = database.getReference("ambulances");
-        String key = ambulanceReference.push().getKey();
-            Ambulance am= new Ambulance("DDD","Venezuela");
-        am.setPosition(-12.0624658,-77.0985932);
-        ambulanceReference.child(key).setValue(am);
     }
 
         @Override
