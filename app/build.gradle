@@ -59,6 +59,5 @@ dependencies {
         exclude group: 'com.google.guava'
     }
     compile ('com.android.support:multidex:1.0.1')
-    //compile project(path: ':backend', configuration: 'android-endpoints')
 }
 apply plugin: 'com.google.gms.google-services'

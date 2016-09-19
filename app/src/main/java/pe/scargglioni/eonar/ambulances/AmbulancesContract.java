@@ -16,6 +16,7 @@ public interface AmbulancesContract {
 
     interface Presenter extends BasePresenter{
         void loadAmbulances();
+        void createAlert();
         void result(int requestCode, int resultCode);
     }
 }

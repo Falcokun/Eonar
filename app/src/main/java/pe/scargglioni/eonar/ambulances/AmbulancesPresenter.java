@@ -38,6 +38,11 @@ public class AmbulancesPresenter implements AmbulancesContract.Presenter {
     }
 
     @Override
+    public void createAlert() {
+
+    }
+
+    @Override
     public void result(int requestCode, int resultCode) {
 
     }

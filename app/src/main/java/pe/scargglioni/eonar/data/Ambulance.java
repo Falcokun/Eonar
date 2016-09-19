@@ -26,6 +26,11 @@ public class Ambulance {
         this.owner = owner;
     }
 
+    public void setPosition(Double latitute, Double longitude) {
+        this.latitute = latitute;
+        this.longitude = longitude;
+    }
+
     @Override
     public String toString() {
         return "Ambulance{" +
