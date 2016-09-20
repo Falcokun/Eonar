@@ -10,7 +10,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import pe.scargglioni.eonar.R;
+import pe.scargglioni.eonar.data.Petition;
 import pe.scargglioni.eonar.data.source.AmbulanceDataSource;
 import pe.scargglioni.eonar.data.source.remote.AmbulanceFirebaseDataSource;
 import pe.scargglioni.eonar.util.ActivityUtils;
@@ -55,6 +59,12 @@ public class AmbulancesActivity extends AppCompatActivity {
         if (savedInstanceState != null) {
 
         }
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference petitionReference = database.getReference("petitions");
+        Petition newPetition = new Petition(-12.0747384,-77.0843857);
+        String key = petitionReference.push().getKey();
+        petitionReference.child(key).setValue(newPetition);
     }
 
 

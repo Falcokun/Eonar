@@ -27,5 +27,6 @@ public class Petition {
         mId = UUID.randomUUID().toString();
         this.latitute = latitute;
         this.longitude = longitude;
+        isAttended = false;
     }
 }
