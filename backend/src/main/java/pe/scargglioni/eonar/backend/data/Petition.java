@@ -28,4 +28,16 @@ public class Petition {
         this.longitude = longitude;
         isAttended = false;
     }
+
+    @Override
+    public String toString() {
+        return "Petition{" +
+                "mId='" + mId + '\'' +
+                ", latitute=" + latitute +
+                ", longitude=" + longitude +
+                ", isAttended=" + isAttended +
+                ", alarmTime=" + alarmTime +
+                ", attentionTime=" + attentionTime +
+                '}';
+    }
 }

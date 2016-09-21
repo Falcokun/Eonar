@@ -1,6 +1,5 @@
 package pe.scargglioni.eonar.data;
 
-import com.google.firebase.database.IgnoreExtraProperties;
 
 import java.util.Date;
 import java.util.UUID;
@@ -8,7 +7,7 @@ import java.util.UUID;
 /**
  * Petition
  */
-@IgnoreExtraProperties
+
 public class Petition {
     private final String mId;
 
@@ -28,5 +27,17 @@ public class Petition {
         this.latitute = latitute;
         this.longitude = longitude;
         isAttended = false;
+    }
+
+    @Override
+    public String toString() {
+        return "Petition{" +
+                "mId='" + mId + '\'' +
+                ", latitute=" + latitute +
+                ", longitude=" + longitude +
+                ", isAttended=" + isAttended +
+                ", alarmTime=" + alarmTime +
+                ", attentionTime=" + attentionTime +
+                '}';
     }
 }
