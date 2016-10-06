@@ -33,4 +33,9 @@ public class PetitionFirebaseDataSource implements PetitionDataSource {
         String key = petitionReference.push().getKey();
         petitionReference.child(key).setValue(newPetition);
     }
+
+    @Override
+    public void updatePetition(Petition petition){
+        petitionReference.child("-KSAOSM5sTVWN-2fZGrt").setValue(petition);
+    }
 }

@@ -20,5 +20,7 @@ public interface PetitionDataSource {
         void onDataNotAvailable();
     }
 
-    public void createPetition(Double latitude,  Double longitude);
+     void createPetition(Double latitude,  Double longitude);
+
+     void updatePetition(Petition petition);
 }

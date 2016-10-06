@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CountDownLatch;
@@ -26,14 +27,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import pe.scargglioni.eonar.backend.data.Ambulance;
+import pe.scargglioni.eonar.backend.data.Element;
+import pe.scargglioni.eonar.backend.data.ElementRow;
+import pe.scargglioni.eonar.backend.data.GoogleMatrixResponse;
 import pe.scargglioni.eonar.backend.data.Petition;
+import pe.scargglioni.eonar.backend.data.source.remote.AmbulanceFirebaseDataSource;
+import pe.scargglioni.eonar.backend.data.source.remote.GoogleMatrixResponseGoogleApiDataSource;
+import pe.scargglioni.eonar.backend.data.source.remote.PetitionFirebaseDataSource;
 
 
 public class RequestResponseServlet extends HttpServlet {
     private DatabaseReference firebase;
-    private DataSnapshot snapshot;
-    List<Ambulance> ambulanceList;
-    List<Petition> petitionList;
+    private List<Ambulance> ambulanceList;
+    private List<Petition> petitionList;
 
     private CountDownLatch latch;
 
@@ -130,19 +136,35 @@ public class RequestResponseServlet extends HttpServlet {
 
     private void matchReferences() {
         System.out.println("Matching");
-        String key = "AIzaSyB7p7S1f2KQQco3xlGVM_JY-mCcnollOR0";
         //https://maps.googleapis.com/maps/api/distancematrix/json?origins=Seattle&destinations=San+Francisco&key=AIzaSyB7p7S1f2KQQco3xlGVM_JY-mCcnollOR0
+        String origin = "";
         String destiny = "";
         String request = "";
         for (Ambulance ambulance : ambulanceList) {
-            destiny += ambulance.latitute + "," + ambulance.longitude + "|";
+            origin += ambulance.latitute + "," + ambulance.longitude + "%7C";
         }
         for (Petition petition : petitionList) {
-            String origin = petition.latitute + "," + petition.longitude;
+            destiny = petition.latitute + "," + petition.longitude;
             String traffic_mode = "optimistic";
             request = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + origin + "&destinations=" + destiny + "&traffic_model=" + traffic_mode + "&departure_time=now&key=AIzaSyB7p7S1f2KQQco3xlGVM_JY-mCcnollOR0";
+            System.out.println(request);
+            GoogleMatrixResponse response = new GoogleMatrixResponse();
+            try {
+                response = GoogleMatrixResponseGoogleApiDataSource.getINSTANCE().getResponsefromHTTP(request);
+                System.out.println(response);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            for (ElementRow row : response.rows) {
+                if (Objects.equals(row.elements.get(0).status, Element.STATUS_OK)) {
+                    petition.isAttended = true;
+                    petition.ambulance = ambulanceList.get(response.rows.indexOf(row));
+                    PetitionFirebaseDataSource.getInstance().updatePetition(petition);
+                    break;
+                }
+            }
         }
-        System.out.println(request);
     }
 
 }

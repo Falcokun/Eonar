@@ -17,6 +17,7 @@ public class Petition {
     public boolean isAttended;
     public Date alarmTime;
     public Date attentionTime;
+    public Ambulance ambulance;
 
     public Petition() {
         mId = UUID.randomUUID().toString();

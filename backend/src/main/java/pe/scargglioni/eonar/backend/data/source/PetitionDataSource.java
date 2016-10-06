@@ -7,6 +7,8 @@ import pe.scargglioni.eonar.backend.data.Petition;
 
 
 public interface PetitionDataSource {
+    void updatePetition(Petition petition);
+
     interface LoadPetitionscCallback {
 
         void onAmbulancesLoaded(List<Petition> petitions);
@@ -21,5 +23,5 @@ public interface PetitionDataSource {
         void onDataNotAvailable();
     }
 
-    public void createPetition(Double latitude, Double longitude);
+     void createPetition(Double latitude, Double longitude);
 }
