@@ -157,7 +157,7 @@ public class RequestResponseServlet extends HttpServlet {
             }
 
             petition.isAttended = false;
-            petition.travelTime = 999;
+            petition.travelTime = 99999;
             for (ElementRow row : response.rows) {
                 if (Objects.equals(row.elements.get(0).status, Element.STATUS_OK)) {
                     if (petition.travelTime > Double.valueOf(row.elements.get(0).duration.value)) {
