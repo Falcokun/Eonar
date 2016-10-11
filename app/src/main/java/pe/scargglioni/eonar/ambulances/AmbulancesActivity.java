@@ -60,11 +60,6 @@ public class AmbulancesActivity extends AppCompatActivity {
 
         }
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference petitionReference = database.getReference("petitions");
-        Petition newPetition = new Petition(-12.0747384,-77.0843857);
-        String key = petitionReference.push().getKey();
-        petitionReference.child(key).setValue(newPetition);
     }
 
 

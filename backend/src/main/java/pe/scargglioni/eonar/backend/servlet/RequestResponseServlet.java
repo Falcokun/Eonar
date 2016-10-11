@@ -136,7 +136,7 @@ public class RequestResponseServlet extends HttpServlet {
 
     private void matchReferences() {
         System.out.println("Matching");
-        //https://maps.googleapis.com/maps/api/distancematrix/json?origins=Seattle&destinations=San+Francisco&key=AIzaSyB7p7S1f2KQQco3xlGVM_JY-mCcnollOR0
+        //Example: https://maps.googleapis.com/maps/api/distancematrix/json?origins=Seattle&destinations=San+Francisco&key=AIzaSyB7p7S1f2KQQco3xlGVM_JY-mCcnollOR0
         String origin = "";
         String destiny = "";
         String request = "";
@@ -156,12 +156,16 @@ public class RequestResponseServlet extends HttpServlet {
                 e.printStackTrace();
             }
 
+            petition.isAttended = false;
+            petition.travelTime = 999;
             for (ElementRow row : response.rows) {
                 if (Objects.equals(row.elements.get(0).status, Element.STATUS_OK)) {
-                    petition.isAttended = true;
-                    petition.ambulance = ambulanceList.get(response.rows.indexOf(row));
+                    if (petition.travelTime > Double.valueOf(row.elements.get(0).duration.value)) {
+                        petition.travelTime = Double.valueOf(row.elements.get(0).duration.value);
+                        petition.isAttended = true;
+                        petition.ambulance = ambulanceList.get(response.rows.indexOf(row));
+                    }
                     PetitionFirebaseDataSource.getInstance().updatePetition(petition);
-                    break;
                 }
             }
         }

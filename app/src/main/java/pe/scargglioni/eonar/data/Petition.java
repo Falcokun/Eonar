@@ -9,7 +9,7 @@ import java.util.UUID;
  */
 
 public class Petition {
-    private final String mId;
+    public final String mId;
 
     public Double latitute;
     public Double longitude;
@@ -18,6 +18,7 @@ public class Petition {
     public Date alarmTime;
     public Date attentionTime;
     public Ambulance ambulance;
+    public double travelTime;
 
     public Petition() {
         mId = UUID.randomUUID().toString();
@@ -25,6 +26,13 @@ public class Petition {
 
     public Petition(Double latitute, Double longitude) {
         mId = UUID.randomUUID().toString();
+        this.latitute = latitute;
+        this.longitude = longitude;
+        isAttended = false;
+    }
+
+    public Petition(String mId, Double latitute, Double longitude) {
+        this.mId = mId;
         this.latitute = latitute;
         this.longitude = longitude;
         isAttended = false;

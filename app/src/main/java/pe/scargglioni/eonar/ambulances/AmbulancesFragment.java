@@ -11,9 +11,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.List;
 
 import pe.scargglioni.eonar.data.Ambulance;
+import pe.scargglioni.eonar.data.Petition;
 import pe.scargglioni.eonar.databinding.AmbulancesFragBinding;
 
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -59,6 +63,9 @@ public class AmbulancesFragment extends Fragment implements AmbulancesContract.V
 
         setHasOptionsMenu(true);
         View root = ambulancesFragBinding.getRoot();
+
+
+
         return root;
     }
 

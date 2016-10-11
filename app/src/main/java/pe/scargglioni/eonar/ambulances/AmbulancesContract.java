@@ -18,5 +18,6 @@ public interface AmbulancesContract {
         void loadAmbulances();
         void createAlert();
         void result(int requestCode, int resultCode);
+        void createPetition();
     }
 }
